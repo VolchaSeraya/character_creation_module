@@ -1,7 +1,11 @@
+"""Это модуль для выбора типа персонажа и его тренировки."""
 from random import randint
 
-
 from graphic_arts.start_game_banner import run_screensaver
+
+"""
+Это функция для отработки атаки.
+"""
 
 
 def attack(char_name: str, char_class: str) -> str:
@@ -17,6 +21,9 @@ def attack(char_name: str, char_class: str) -> str:
     return (f'{char_name} не нанёс урон противнику')
 
 
+"""Это функция для отработки защиты."""
+
+
 def defence(char_name: str, char_class: str) -> str:
     if char_class == 'warrior':
         return (f'{char_name} блокировал {10 + randint(5, 10)} урона')
@@ -25,6 +32,9 @@ def defence(char_name: str, char_class: str) -> str:
     if char_class == 'healer':
         return (f'{char_name} блокировал {10 + randint(2, 5)} урона')
     return (f'{char_name} не блокировал')
+
+
+"""Это функция для отработки специального умения."""
 
 
 def special(char_name: str, char_class: str) -> str:
@@ -36,6 +46,9 @@ def special(char_name: str, char_class: str) -> str:
     if char_class == 'healer':
         return (f'{char_name} применил специальное умение «Защита {10 + 30}»')
     return (f'{char_name} не применил специальное умение')
+
+
+"""Это функция запуска тренировки."""
 
 
 def start_training(char_name: str, char_class: str) -> str:
@@ -63,6 +76,10 @@ def start_training(char_name: str, char_class: str) -> str:
             print(special(char_name, char_class))
     return 'Тренировка окончена.'
 
+    """
+    Это функия выбора персонажа.
+    """
+
 
 def choice_char_class() -> str:
     approve_choice: str = None
@@ -86,9 +103,11 @@ def choice_char_class() -> str:
                                'или любую другую кнопку, '
                                'чтобы выбрать другого персонажа ').lower()
     return char_class
+    """_summary_
+    """
 
 
-def main() -> None:
+if __name__ == '__main__':
     run_screensaver()
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
@@ -98,7 +117,4 @@ def main() -> None:
     print('Ты можешь выбрать один из трёх путей силы:')
     print('Воитель, Маг, Лекарь')
     char_class: str = choice_char_class()
-    print(start_training(char_name, char_class))
-
-
-main()
+    print(start_training(char_name, char_class)) 
